@@ -37,6 +37,8 @@ module.exports.routes = {
   'POST /api/v1/login': { action: 'auth/login' },
   'POST /api/v1/addnote': { action: 'notes/add'},
   'GET /api/v1/getnotes': { action: 'notes/allnotes'},
-  'GET /api/v1/note/:id': { action: 'notes/note'}
+  'GET /api/v1/note/:id': { action: 'notes/note'},
+  'PUT /api/v1/note/u/:id': { action: 'notes/updatenote'},
+  'DELETE /api/v1/note/d/:id': { action: 'notes/deletenote'}
 
 };

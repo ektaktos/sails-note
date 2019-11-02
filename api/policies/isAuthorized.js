@@ -6,15 +6,15 @@ module.exports = async function(req,res,next){
   if (req.headers && req.headers.authorization) {
     token = req.headers.authorization.split(' ')[1];
     if (!token) {
-      return res.json(401,{err: 'Format is Authorization: Bearer [token]'});
+      return res.status(401).send({err: 'Format is Authorization: Bearer [token]'});
     }else{
       jwt.verify(token,secret, (err,decoded) =>{
-        if (err) return res.json(401,{err: 'Invalid Token'});
+        if (err) return res.status(401).send({err: 'Invalid Token'});
         req.decoded = decoded;
         next();
       });
     }
   }else{
-    return res.json(401,{err: 'No Authorization header was found'});
+    return res.status(401).send({err: 'No Authorization header was found'});
   }
 };
