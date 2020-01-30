@@ -22,6 +22,7 @@ module.exports = {
   fn: async function () {
     var id = parseInt(this.req.params.id,10);
     var note = await Notes.destroyOne({ id:id});
+    var b = await Books.create().fetch();
     // return;
 
   }
